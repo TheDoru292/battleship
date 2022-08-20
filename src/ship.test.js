@@ -7,5 +7,9 @@ test("ship length", () => {
 });
 
 test("ship getting hit", () => {
-  expect(damnThatShip.hit(1)).toBe(["", "hit"]);
+  expect(damnThatShip.hit(1)).toEqual(["", "hit"]);
+});
+
+test("second time ship getting hit", () => {
+  expect(damnThatShip.hit(0)).toEqual(["hit", "hit"]);
 });
