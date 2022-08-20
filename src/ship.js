@@ -21,9 +21,26 @@ const ship = (length) => {
     }
   };
 
+  const isSunk = () => {
+    for (let i = length - 1; array.length >= i; i--) {
+      if (i == 0) {
+        if (array[i] === "hit") {
+          return true;
+        }
+        return false;
+      }
+      if (array[i] === "hit") {
+        continue;
+      } else {
+        return false;
+      }
+    }
+  };
+
   return {
     length,
     hit,
+    isSunk,
   };
 };
 
