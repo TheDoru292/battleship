@@ -98,11 +98,16 @@ const Gameboard = () => {
     );
   };
 
+  const getGameboardSize = () => {
+    return gameboardArray.length;
+  };
+
   return {
     onStart,
     placeShip,
     receiveAttack,
     allSunk,
+    getGameboardSize,
   };
 };
 
