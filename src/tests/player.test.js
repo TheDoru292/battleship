@@ -1,4 +1,4 @@
-const player = require("../player");
+const player = require("../classes/player");
 
 const actualPlayer = player();
 const npc = player(true);

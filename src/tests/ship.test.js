@@ -1,4 +1,4 @@
-const ship = require("../ship");
+const ship = require("../classes/ship");
 
 const damnThatShip = ship(2);
 const newShip = ship(3);
