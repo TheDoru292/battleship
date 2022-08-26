@@ -12,7 +12,7 @@ const Gameboard = () => {
 
   const onStart = () => {
     if (firstRun === true) {
-      let cells = 10;
+      let cells = 100;
 
       for (let i = 0; cells > i; i++) {
         gameboardArray.push("");
