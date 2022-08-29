@@ -25,12 +25,12 @@ const Gameboard = () => {
   };
 
   const placeShip = (cell, length, shipName) => {
-    determineVariable(shipName);
+    getShip(shipName);
     _addShipToArray(cell, length, shipName);
     return gameboardArray;
   };
 
-  const determineVariable = (shipName) => {
+  const getShip = (shipName) => {
     switch (shipName) {
       case "Carrier":
         return carrier;
@@ -53,7 +53,7 @@ const Gameboard = () => {
     let inArray = gameboardArray[coordinate];
 
     if (inArray !== "") {
-      let shipObject = determineVariable(shipName);
+      let shipObject = getShip(shipName);
       shipObject.hit(shipCoordinate);
 
       gameboardArray[coordinate] = `${inArray} - hit`;
@@ -108,6 +108,7 @@ const Gameboard = () => {
     receiveAttack,
     allSunk,
     getGameboardSize,
+    getShip,
   };
 };
 
