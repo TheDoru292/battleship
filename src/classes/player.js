@@ -29,10 +29,16 @@ const player = (npc = undefined) => {
       let opponentGameboard = npcObject.getGameboard();
 
       if (npc === true) {
-        let randomCoordinate = Math.floor(
-          Math.random() * (opponentGameboard.getGameboardSize() - 0 + 1) + 0
-        );
-        result = opponentGameboard.receiveAttack(randomCoordinate);
+        let randomCoordinate = getRandomCoordinate(opponentGameboard);
+
+        if (randomCoordinate === "miss") {
+          randomCoordinate = getRandomCoordinate(opponentGameboard);
+          result = opponentGameboard.receiveAttack(randomCoordinate, "npc");
+        } else {
+          result = opponentGameboard.receiveAttack(randomCoordinate, "npc");
+        }
+
+        console.log(opponentGameboard.getGameboardArray()[randomCoordinate]);
       } else {
         result = opponentGameboard.receiveAttack(
           coordinate,
@@ -44,10 +50,24 @@ const player = (npc = undefined) => {
       npcObject.setTurn(true);
       setTurn(false);
     } else {
-      result = "It's not your turn!";
+      result = "notTurn";
     }
 
     return result;
+  };
+
+  const getRandomCoordinate = (opponentGameboard) => {
+    let randomCoordinate = Math.floor(
+      Math.random() * (opponentGameboard.getGameboardSize() - 0 + 1) + 0
+    );
+
+    let gameboard = opponentGameboard.getGameboardArray();
+
+    if (gameboard[randomCoordinate] === "hit") {
+      return "miss";
+    }
+
+    return randomCoordinate;
   };
 
   return {

@@ -11,6 +11,10 @@ const ship = (length) => {
     return array;
   };
 
+  const getArray = () => {
+    return array;
+  };
+
   const realHit = (n) => {
     return (array[n] = "hit");
   };
@@ -35,12 +39,15 @@ const ship = (length) => {
         return false;
       }
     }
+
+    console.log(array);
   };
 
   return {
     length,
     hit,
     isSunk,
+    getArray,
   };
 };
 
